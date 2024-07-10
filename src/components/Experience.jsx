@@ -9,6 +9,7 @@ import { Background } from "./Background";
 import { Hi } from "./Hi";
 import { Eletter } from "./ELetter";
 import { Hello } from "./Hello";
+import { VelvetBeanBag } from "./VelvetBeanBag";
 
 export const Experience = (props) => {
   const {section,  menuOpened } = props;
@@ -79,9 +80,9 @@ export const Experience = (props) => {
     switch (characterAnimation) {
       case "Standing":
       case "Greeting":
-        return 0.5; // Adjust this value to change the position when standing
+        return 0.7; // Adjust this value to change the position when standing
       case "StandingUp":
-        return 0.5;
+        return 0.7;
       case "Sitting":
       default:
         return 0.2;
@@ -96,7 +97,7 @@ export const Experience = (props) => {
       case "StandingUp":
       case "Sitting":
       default:
-        return -1;
+        return -1.01;
     }
   };
 
@@ -120,7 +121,7 @@ export const Experience = (props) => {
         castShadow
         position={[-2.5, 8, 5]}
         color="#ffb3e6"
-        intensity={1.5}
+        intensity={0.51}
         shadow-mapSize-width={1024}
         shadow-mapSize-height={1024}
         shadow-camera-far={50}
@@ -144,10 +145,20 @@ export const Experience = (props) => {
 
       {
       // section === 0 &&
-      <group position={[1, -1, 0]} rotation={[0,-0.5,0]}>
-        <Chair scale={[0.5, 0.8, 0.5]}  />
+
+      // <group position={[1, -1, 0]} rotation={[0,-0.5,0]}>
+      //   <Chair scale={[0.5, 0.8, 0.5]}  />
+      // </group>
+
+      <group 
+        position={[1.2, -1, -0.3]}
+        rotation={[0,-0.5,0]}
+        scale={[1, 1.2, 1]}
+      >
+        <VelvetBeanBag />
       </group>
       }
+        {/* <VelvetBeanBag position={[0, 0, 0]} rotation={[0,0,0]} scale={[1, 1,1]}/> */}
 
       {/* <Eletter position={[-2, -4, -10]} rotation={[0,0,0]} scale={[3, 3, 3]}  /> */}
       {/* <Hi position={[-2, -1, -1]} rotation={[0,0.4,0]} scale={[1, 1, 1]}  /> */}
@@ -163,18 +174,18 @@ export const Experience = (props) => {
           y: section === 1 ? -viewport.height : -3,
         }}
       >
-        <directionalLight position={[-5, 3, 5]} intensity={0.4} />
+        <directionalLight position={[-5, 3, 5]} intensity={0.4} castShadow/>
         <Float>
-          <Hello position={[-1, 0, 0]} scale={[2, 2, 2]}>
-            <sphereGeometry />
+          <Hello position={[-1, 0, 0]} scale={[2, 2, 2]} />
+            {/* <sphereGeometry />
             <MeshDistortMaterial
               opacity={0.8}
               transparent
               distort={0.4}
               speed={4}
               color={"red"}
-            />
-          </Hello>
+            /> */}
+          {/* </Hello> */}
         </Float>
         {/* <Float>
           <mesh scale={[3, 3, 3]} position={[-5, -8, -18]}>
