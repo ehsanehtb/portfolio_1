@@ -3,11 +3,8 @@ import { Section } from "./Interface";
 const Contact = () => {
     return (
     <Section id="contact">
-        {/* <h1 >
-        contact, I'm
-        <br />
-        <span>Wawa Sensei</span>
-      </h1> */}
+      {/* <h1 className="sect">contact</h1> */}
+
       <h2 className="contact-title">Contact me</h2>
       <div className="Contact-container">
         <form>

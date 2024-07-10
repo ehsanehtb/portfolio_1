@@ -5,6 +5,8 @@ const Home = () => {
 
   return (
     <Section id="home">
+      {/* <h1 className="sect">hi</h1> */}
+      
       <h1 
       // className="text-6xl font-extrabold leading-snug"
       >

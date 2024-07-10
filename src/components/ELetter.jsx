@@ -14,23 +14,14 @@ export function Eletter(props) {
   texture.flipY = false
   texture.encoding = Three.sRGBEncoding
 
-  // Set wrapping and filtering options
-  texture.wrapS = Three.RepeatWrapping
-  texture.wrapT = Three.RepeatWrapping
-  texture.minFilter = Three.LinearFilter
-  texture.magFilter = Three.LinearFilter
-
   const textureMaterial = new Three.MeshStandardMaterial({
     map: texture,
-    // Additional settings to ensure the texture is correctly applied
-    side: Three.DoubleSide, // If your mesh is double-sided
-    transparent: true, // If your texture has an alpha channel
   })
 
 
   return (
     <group {...props} dispose={null}>
-      <mesh name="Text" geometry={nodes.Text.geometry} material={textureMaterial} rotation={[1.594, 0, 0]} />
+      <mesh name="Text" geometry={nodes.Text.geometry} material={materials['Material.001']} rotation={[1.594, 0, 0]} />
     </group>
   )
 }

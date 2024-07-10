@@ -58,7 +58,7 @@ const ScrollManager = (props) => {
       if (curSection === 0) {
         onSectionChange(1);
       } else if (curSection === 1) {
-        onSectionChange(2);
+        // onSectionChange(2);
       } else if (curSection === 2) {
         onSectionChange(3);
       }

@@ -35,17 +35,16 @@ export const Experience = (props) => {
   // const characterContainerAboutRef = useRef();
 
   useEffect(() => {
-console.log("section :" ,section)
     // setCharacterAnimation("StandingUp");
     setTimeout(() => {
       if(section === 0)
       setCharacterAnimation("Sitting");
       else if(section === 1)
         setCharacterAnimation("Standing");
-      else if(section === 2)
-        setCharacterAnimation("Greeting");
-      // else if(section === 3)
-      //  setCharacterAnimation("Greeting");
+      // else if(section === 2)
+      //   setCharacterAnimation("Greeting");
+      else if(section === 3)
+       setCharacterAnimation("Greeting");
 
     }, 600);
   }, [section]);
@@ -75,19 +74,6 @@ console.log("section :" ,section)
 
     // console.log([euler.x, euler.y, euler.z]);
   // });
-
-  // let animation = "Sitting" 
-  // if(section){
-  //   if(section === 0)
-  //     animation = "Sitting"
-  //   if(section === 1)
-  //     animation = "StandingUp"
-  //   if(section === 2)
-  //     animation = "Standing"
-  //   if(section === 3)
-  //     animation = "Greeting"
-  // }
-
 
     const getPositionZ = () => {
     switch (characterAnimation) {

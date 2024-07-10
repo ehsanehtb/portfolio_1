@@ -23,6 +23,10 @@
     width: 16rem;
   }
 
+  .sect {
+    height: 90vh;
+  }
+
   .skill-bar-container {
     height: 1rem;
     width: 100%;

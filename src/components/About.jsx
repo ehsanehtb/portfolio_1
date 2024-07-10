@@ -45,11 +45,8 @@ const About = () => {
 
     return (
       <Section id="about">
-        {/* <h1 >
-        about, I'm 
-        <br />
-        <span>Wawa Sensei</span>
-      </h1> */}
+      {/* <h1 className="sect" >about</h1> */}
+
       <motion.div whileInView={"visible"}>
         <h2 className="section-title">Skills</h2>
         <div className="mt-8 space-y-4">

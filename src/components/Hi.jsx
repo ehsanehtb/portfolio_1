@@ -10,48 +10,17 @@ import * as Three from "three"
 export function Hi(props) {
   const { nodes, materials } = useGLTF('models/hi_2.glb')
 
-    // const texture = useTexture('textures/bake11.jpg')
-    // const textureMaterial = new Three.MeshStandardMaterial({
-    //     map: texture
-    // })
-    // texture.flipY = false
-    // texture.encoding =Three.sRGBEncoding
-
     const texture = useTexture('textures/bake18.jpg')
     texture.flipY = false
     texture.encoding = Three.sRGBEncoding
-  
-    // Set wrapping and filtering options
-    texture.wrapS = Three.RepeatWrapping
-    texture.wrapT = Three.RepeatWrapping
-    texture.minFilter = Three.LinearFilter
-    texture.magFilter = Three.LinearFilter
-  
+
     const textureMaterial = new Three.MeshStandardMaterial({
       map: texture,
-      // Additional settings to ensure the texture is correctly applied
-      side: Three.DoubleSide, // If your mesh is double-sided
-      transparent: true, // If your texture has an alpha channel
-    })
-
-    // Wireframe material for debugging
-    const wireframeMaterial = new Three.MeshBasicMaterial({
-        // color: "#E75A73",
-        wireframe: true
     })
 
   return (
     <group {...props} dispose={null}>
-    <mesh name="Text" geometry={nodes.Text.geometry} material={textureMaterial} position={[-0.902, -0.022, 0.449]} rotation={[1.62, 0, 0]} scale={1.083} />
-
-    {/* <mesh 
-        name="TextWireframe" 
-        geometry={nodes.Text.geometry} 
-        material={wireframeMaterial} 
-        position={[-0.902, -0.022, 0.449]} 
-        rotation={[1.62, 0, 0]} 
-        scale={1.083}
-      /> */}
+    <mesh name="Text" geometry={nodes.Text.geometry} material={materials['Material.002']} position={[-0.902, -0.022, 0.449]} rotation={[1.62, 0, 0]} scale={1.083} />
   </group>
   )
 }
