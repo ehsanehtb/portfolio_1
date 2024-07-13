@@ -130,3 +130,83 @@
     background-color: #4f46e5; /* Darken on hover */
   }
   
+
+  /* Menu.css */
+
+.menu-button {
+  z-index: 20;
+  position: fixed;
+  top: 3rem;
+  right: 3rem;
+  padding: 0.75rem;
+  background-color: #4f46e5; /* indigo-600 */
+  width: 2.75rem; /* w-11 */
+  height: 2.75rem; /* h-11 */
+  border-radius: 0.375rem; /* rounded-md */
+}
+
+.menu-bar {
+  background-color: white;
+  height: 0.125rem; /* h-0.5 */
+  border-radius: 0.375rem; /* rounded-md */
+  width: 100%;
+  transition: all 0.3s;
+}
+
+.menu-bar-middle {
+  margin: 0.25rem 0; /* my-1 */
+}
+
+.menu-bar-open-rotate {
+  transform: rotate(45deg) translateY(0.125rem);
+}
+
+.menu-bar-open-rotate-reverse {
+  transform: rotate(-45deg);
+}
+
+.menu-bar-hidden {
+  display: none;
+}
+
+.menu-container {
+  z-index: 10;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  transition: all 0.3s;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-container-open {
+  width: 20rem; /* w-80 */
+}
+
+.menu-container-closed {
+  width: 0;
+}
+
+.menu-content {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1.5rem; /* gap-6 */
+  padding: 2rem; /* p-8 */
+}
+
+.menu-button-item {
+  font-size: 1.5rem; /* text-2xl */
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.menu-button-item:hover {
+  color: #4f46e5; /* hover:text-indigo-600 */
+}

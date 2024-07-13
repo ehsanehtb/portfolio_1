@@ -4,6 +4,9 @@ import { useEffect, useState } from "react";
 import { Scroll, ScrollControls } from "@react-three/drei";
 import Interface from "./components/Interface";
 import ScrollManager from "./components/ScrollManager";
+import Menu from "./components/Menu";
+import { MotionConfig } from "framer-motion";
+import { framerMotionConfig } from "./Config";
 
 function App() {
 
@@ -42,6 +45,12 @@ function App() {
 
 
   return (
+    <>
+    <MotionConfig
+        transition={{
+          ...framerMotionConfig,
+        }}
+      >
     <Canvas shadows camera={{ position: [0, 2, 5], fov: 30 }} style={{ background: calculateBackgroundGradient(section)}}>
       {/* <color attach="background" args={["#ececec"]} /> */}
       <ScrollControls pages={3} damping={0.1}>
@@ -52,6 +61,9 @@ function App() {
         </Scroll>
       </ScrollControls>
     </Canvas>
+    <Menu onSectionChange={setSection} menuOpened={menuOpened} setMenuOpened={setMenuOpened} />
+    </MotionConfig>
+    </>
   );
 }
 

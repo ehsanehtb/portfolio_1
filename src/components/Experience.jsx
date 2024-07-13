@@ -1,16 +1,17 @@
 import { ContactShadows, Float, MeshDistortMaterial, MeshWobbleMaterial, OrbitControls, useScroll } from "@react-three/drei";
 import { motion } from "framer-motion-3d";
-import { Avatar } from "./Avatar";
-import { Chair } from "./Chair";
+import { Avatar } from "./models/Avatar";
+import { Chair } from "./models/Chair";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useRef, useState } from "react";
 import { animate, useMotionValue } from "framer-motion";
 import { Background } from "./Background";
-import { Hi } from "./Hi";
-import { Eletter } from "./ELetter";
-import { Hello } from "./Hello";
-import { VelvetBeanBag } from "./VelvetBeanBag";
-import { Ehs } from "./Ehs";
+import { Hi } from "./models/Hi";
+import { Eletter } from "./models/ELetter";
+import { Hello } from "./models/Hello";
+import { VelvetBeanBag } from "./models/VelvetBeanBag";
+import { Ehs } from "./models/Ehs";
+import { framerMotionConfig } from "../Config";
 
 export const Experience = (props) => {
   const {section,  menuOpened } = props;
@@ -25,15 +26,20 @@ export const Experience = (props) => {
   const cameraPositionX = useMotionValue();
   const cameraLookAtX = useMotionValue();
 
-  // useEffect(() => {
-  //   animate(cameraPositionX, menuOpened ? -5 : 0, {
-  //     ...framerMotionConfig,
-  //   });
-  //   animate(cameraLookAtX, menuOpened ? 5 : 0, {
-  //     ...framerMotionConfig,
-  //   });
-  // }, [menuOpened]);
+  useEffect(() => {
+    animate(cameraPositionX, menuOpened ? -5 : 0, {
+      ...framerMotionConfig,
+    });
+    animate(cameraLookAtX, menuOpened ? 5 : 0, {
+      ...framerMotionConfig,
+    });
+  }, [menuOpened]);
 
+  useFrame((state) => {
+    state.camera.position.x = cameraPositionX.get();
+    state.camera.lookAt(cameraLookAtX.get(), 0, 0);
+  });
+  
   // const characterContainerAboutRef = useRef();
 
   useEffect(() => {
@@ -165,7 +171,7 @@ export const Experience = (props) => {
       {/* <Hi position={[-2, -1, -1]} rotation={[0,0.4,0]} scale={[1, 1, 1]}  /> */}
       {/* <Hello position={[-1, 0, 0]} rotation={[-0.8,0.4,0.5]} scale={[1, 1, 1]}  /> */}
 
-      <Ehs position={[-2.5, 0, -2]} rotation={[1,-1.5,0]} scale={[0.5, 0.5, 0.5]}/>
+      <Ehs position={[-2.5, 0, -2]} rotation={[1,-1.5,0]} scale={[0.1, 0.1, 0.1]}/>
 
       {/* SKILLS */}
       <motion.group
