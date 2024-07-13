@@ -25,9 +25,9 @@ export const LoadingScreen = (props) => {
             className="overlay-progress"
             style={{ width: `${progress}%` }}
         >
-            Wawa Sensei
+            Ehs
         </div>
-        <div className="overlay-progress-text">Wawa Sensei</div>
+        <div className="overlay-progress-text">Ehs</div>
     </div>
 </div>
   );

@@ -50,8 +50,13 @@ const Home = () => {
           duration: 1,
           delay: 2,
         }}
+        className="contact_button"
       >
         Contact me
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
       </motion.button>
     </Section>
   );
