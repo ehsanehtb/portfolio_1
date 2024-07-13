@@ -10,6 +10,7 @@ import { Hi } from "./Hi";
 import { Eletter } from "./ELetter";
 import { Hello } from "./Hello";
 import { VelvetBeanBag } from "./VelvetBeanBag";
+import { Ehs } from "./Ehs";
 
 export const Experience = (props) => {
   const {section,  menuOpened } = props;
@@ -121,7 +122,7 @@ export const Experience = (props) => {
         castShadow
         position={[-2.5, 8, 5]}
         color="#ffb3e6"
-        intensity={0.51}
+        intensity={0.71}
         shadow-mapSize-width={1024}
         shadow-mapSize-height={1024}
         shadow-camera-far={50}
@@ -164,7 +165,7 @@ export const Experience = (props) => {
       {/* <Hi position={[-2, -1, -1]} rotation={[0,0.4,0]} scale={[1, 1, 1]}  /> */}
       {/* <Hello position={[-1, 0, 0]} rotation={[-0.8,0.4,0.5]} scale={[1, 1, 1]}  /> */}
 
-      
+      <Ehs position={[-2.5, 0, -2]} rotation={[1,-1.5,0]} scale={[0.5, 0.5, 0.5]}/>
 
       {/* SKILLS */}
       <motion.group
