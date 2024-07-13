@@ -7,12 +7,14 @@ import ScrollManager from "./components/ScrollManager";
 import Menu from "./components/Menu";
 import { MotionConfig } from "framer-motion";
 import { framerMotionConfig } from "./Config";
+import { LoadingScreen } from "./components/LoadingScreen";
 
 function App() {
 
   const [section, setSection] = useState(0);
   const [menuOpened, setMenuOpened] = useState(false);
-
+  const [started, setStarted] = useState(false);
+  
   useEffect(() => {
     setMenuOpened(false);
   }, [section]);
@@ -46,6 +48,7 @@ function App() {
 
   return (
     <>
+      <LoadingScreen started={started} setStarted={setStarted} />
     <MotionConfig
         transition={{
           ...framerMotionConfig,

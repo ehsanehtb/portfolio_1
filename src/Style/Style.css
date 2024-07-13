@@ -62,7 +62,6 @@
     margin-top: 1rem;
   }
 
-
   .contact-container {
     margin-top: 2rem; /* mt-8 */
     padding: 2rem; /* p-8 */
@@ -98,7 +97,7 @@
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); /* shadow-sm */
     padding: 0.75rem; /* p-3 */
     background-color: white; /* bg-white */
-    placeholder-color: #9ca3af; /* placeholder:text-gray-400 */
+    /* placeholder-color: #9ca3af;  */
   }
   
   .contact-input:focus,
@@ -209,4 +208,53 @@
 
 .menu-button-item:hover {
   color: #4f46e5; /* hover:text-indigo-600 */
+}
+
+
+/* Overlay.css */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 50;
+  transition: opacity 1s;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ebf8ff; /* bg-indigo-50 */
+}
+
+.overlay-visible {
+  opacity: 1;
+}
+
+.overlay-hidden {
+  opacity: 0;
+}
+
+.overlay-text {
+  font-size: 2.25rem; /* text-4xl */
+  @media (min-width: 768px) {
+    font-size: 6rem; /* md:text-9xl */
+  }
+  font-weight: bold;
+  color: #4a5568; /* text-indigo-900 */
+  position: relative;
+}
+
+.overlay-progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: width 0.5s;
+}
+
+.overlay-progress-text {
+  opacity: 0.4;
 }
