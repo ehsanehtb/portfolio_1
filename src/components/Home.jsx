@@ -14,7 +14,7 @@ const Home = () => {
         <br />
         <span 
         // className="bg-white px-1 italic"
-        >Wawa Sensei</span>
+        >Ehsaneh Taleb</span>
       </h1>
       <motion.p
         // className="text-lg text-gray-600 mt-4"
@@ -31,7 +31,7 @@ const Home = () => {
           delay: 1.5,
         }}
       >
-        I make YouTube videos to help developers
+        I'm a front_end developer
         <br />
         learn how to build 3D apps
       </motion.p>

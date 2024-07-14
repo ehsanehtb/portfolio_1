@@ -54,7 +54,7 @@ function App() {
           ...framerMotionConfig,
         }}
       >
-    <Canvas shadows camera={{ position: [0, 2, 5], fov: 30 }} style={{ background: calculateBackgroundGradient(section)}}>
+    <Canvas shadows camera={{ position: [0, 1, 5], fov: 30 }} style={{ background: calculateBackgroundGradient(section)}}>
       {/* <color attach="background" args={["#ececec"]} /> */}
       <ScrollControls pages={3} damping={0.1}>
         <ScrollManager section={section} onSectionChange={setSection} />

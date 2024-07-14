@@ -12,6 +12,7 @@ import { Hello } from "./models/Hello";
 import { VelvetBeanBag } from "./models/VelvetBeanBag";
 import { Ehs } from "./models/Ehs";
 import { framerMotionConfig } from "../Config";
+import { Room } from "./models/Room";
 
 export const Experience = (props) => {
   const {section,  menuOpened } = props;
@@ -27,10 +28,10 @@ export const Experience = (props) => {
   const cameraLookAtX = useMotionValue();
 
   useEffect(() => {
-    animate(cameraPositionX, menuOpened ? -5 : 0, {
+    animate(cameraPositionX, menuOpened ? -3 : 0, {
       ...framerMotionConfig,
     });
-    animate(cameraLookAtX, menuOpened ? 5 : 0, {
+    animate(cameraLookAtX, menuOpened ? 1 : 0, {
       ...framerMotionConfig,
     });
   }, [menuOpened]);
@@ -123,32 +124,35 @@ export const Experience = (props) => {
 
   return (
     <>
-     {/* <OrbitControls /> */}
+      {/* <OrbitControls
+        // Limits for rotation around the y-axis (azimuthal angle)
+        minAzimuthAngle={-Math.PI / 4} // Minimum azimuthal angle
+        maxAzimuthAngle={Math.PI / 2}  // Maximum azimuthal angle
+
+        // Limits for rotation up and down (polar angle)
+        minPolarAngle={Math.PI / 4} // Minimum polar angle
+        maxPolarAngle={Math.PI / 2} // Maximum polar angle
+
+        // // Limits for zooming
+        // minDistance={2} // Minimum distance for zoom
+        // maxDistance={8} // Maximum distance for zoom
+      /> */}
       <directionalLight
         castShadow
         position={[-2.5, 8, 5]}
-        color="#ffb3e6"
-        intensity={0.71}
-        shadow-mapSize-width={1024}
-        shadow-mapSize-height={1024}
-        shadow-camera-far={50}
-        shadow-camera-left={-10}
-        shadow-camera-right={10}
-        shadow-camera-top={10}
-        shadow-camera-bottom={-10}
+        color="#f7c197"
+        intensity={0.7}
       />
-      {/* <Background /> */}
       <motion.group
         position={[getPositionX(), getPositionY(), getPositionZ()]}
         rotation={[0,-0.5,0]}
         animate={section}
-        // transition={{
-        //   duration: 0.1,
-        // }}
       >
-        {/* <ContactShadows opacity={0.4} scale={10} blur={1} far={10} resolution={256} color="#000000" /> */}
         <Avatar animation={characterAnimation} section={section} />
       </motion.group>
+
+
+      <Room position={[0.5, -1.1 , -2]} scale={0.4}  rotation={[-0.02,-0.7,0]}/>
 
       {
       // section === 0 &&
@@ -157,13 +161,13 @@ export const Experience = (props) => {
       //   <Chair scale={[0.5, 0.8, 0.5]}  />
       // </group>
 
-      <group 
-        position={[1.2, -1, -0.3]}
-        rotation={[0,-0.5,0]}
-        scale={[1, 1.2, 1]}
-      >
-        <VelvetBeanBag />
-      </group>
+      // <group 
+      //   position={[1.2, -1, -0.3]}
+      //   rotation={[0,-0.5,0]}
+      //   scale={[1, 1.2, 1]}
+      // >
+      //   <VelvetBeanBag />
+      // </group>
       }
         {/* <VelvetBeanBag position={[0, 0, 0]} rotation={[0,0,0]} scale={[1, 1,1]}/> */}
 
@@ -171,7 +175,7 @@ export const Experience = (props) => {
       {/* <Hi position={[-2, -1, -1]} rotation={[0,0.4,0]} scale={[1, 1, 1]}  /> */}
       {/* <Hello position={[-1, 0, 0]} rotation={[-0.8,0.4,0.5]} scale={[1, 1, 1]}  /> */}
 
-      <Ehs position={[-2.5, 0, -2]} rotation={[1,-1.5,0]} scale={[0.1, 0.1, 0.1]}/>
+      {/* <Ehs position={[-3.5, 1, -2]} rotation={[1,-1.5,0]} scale={[0.1, 0.1, 0.1]}/> */}
 
       {/* SKILLS */}
       <motion.group
@@ -181,42 +185,9 @@ export const Experience = (props) => {
           y: section === 1 ? -viewport.height : -3,
         }}
       >
-        <directionalLight position={[-5, 3, 5]} intensity={0.4} castShadow/>
-        <Float>
-          <Hello position={[-1, 0, 0]} scale={[2, 2, 2]} />
-            {/* <sphereGeometry />
-            <MeshDistortMaterial
-              opacity={0.8}
-              transparent
-              distort={0.4}
-              speed={4}
-              color={"red"}
-            /> */}
-          {/* </Hello> */}
-        </Float>
+        {/* <directionalLight position={[-5, 3, 5]} intensity={0.4} castShadow/> */}
         {/* <Float>
-          <mesh scale={[3, 3, 3]} position={[-5, -8, -18]}>
-            <sphereGeometry />
-            <MeshDistortMaterial
-              opacity={0.8}
-              transparent
-              distort={1}
-              speed={5}
-              color="yellow"
-            />
-          </mesh>
-        </Float>
-        <Float>
-          <mesh scale={[1.4, 1.4, 1.4]} position={[-3, -3, -11]}>
-            <boxGeometry />
-            <MeshWobbleMaterial
-              opacity={0.8}
-              transparent
-              factor={1}
-              speed={5}
-              color={"blue"}
-            />
-          </mesh>
+          <Hello position={[-1, 0, 0]} scale={[2, 2, 2]} />
         </Float> */}
       </motion.group>
 
