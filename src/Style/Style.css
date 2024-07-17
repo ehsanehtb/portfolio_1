@@ -157,6 +157,14 @@
     background-color: #4f46e5; 
   }
 
+  .contact-message {
+    font-size: 1.5rem;
+    background-color: #ffe4ec8f;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+  
+
   /* Menu.css */
 
 .menu-button {
@@ -293,15 +301,18 @@
 }
 
 
-/* contact_button  */
+/* home-button  */
+.home-button-container {
+  display: flex;
+}
 
-.contact_button {
+.home-button {
   --c: #4f46e5;
   color: var(--c);
   font-size: 16px;
   border: 0.3em solid var(--c);
   border-radius: 0.5em;
-  width: 12em;
+  /* width: 12em; */
   /* height: 3em; */
   text-transform: uppercase;
   font-weight: bold;
@@ -316,9 +327,18 @@
   background: none;
   cursor: pointer;
   margin-top: 1rem;
+  margin-right: 1rem;
 }
 
-.contact_button span {
+.contact-button {
+  width: 12em;
+}
+
+.download-button {
+  width: 4rem;
+}
+
+.home-button span {
   position: absolute;
   width: 25%;
   height: 100%;
@@ -331,36 +351,30 @@
   z-index: -1;
 }
 
-.contact_button:hover {
+.home-button:hover {
   color: black;
 }
 
-.contact_button:hover span {
+.home-button:hover span {
   transform: translateY(0) scale(2);
 }
 
-.contact_button span:nth-child(2) {
+.home-button span:nth-child(2) {
   --n: 1;
 }
 
-.contact_button span:nth-child(3) {
+.home-button span:nth-child(3) {
   --n: 2;
 }
 
-.contact_button span:nth-child(4) {
+.home-button span:nth-child(4) {
   --n: 3;
 }
 
-.contact_button span:nth-child(5) {
+.home-button span:nth-child(5) {
   --n: 4;
 }
 
-.contact-message {
-  font-size: 1.5rem;
-  background-color: #ffe4ec8f;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-}
 
 
 
