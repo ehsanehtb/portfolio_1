@@ -28,11 +28,11 @@ export const Section = (props) => {
     )
 }
 
-const Interface = () => {
-
+const Interface = (props) => {
+  const { setSection } = props;
   return (
     <div className="full-screen-item">
-        <Home/>
+        <Home setSection={setSection}/>
         <About/>
         <Contact/>
     </div>

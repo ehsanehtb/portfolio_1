@@ -24,6 +24,13 @@ export const Experience = (props) => {
   // const [section, setSection] = useState(0);
   const [characterAnimation, setCharacterAnimation] = useState("Sitting");
 
+  const isMobile = window.innerWidth < 768;
+  const responsiveRatio = viewport.width / 6;
+  const officeScaleRatio = Math.max(0.3, Math.min(0.4 * responsiveRatio, 0.4));
+  const avatarScaleRatio = Math.max(0.7, Math.min(1 * responsiveRatio, 1))
+
+console.log("isMobile :" ,isMobile)
+
   const cameraPositionX = useMotionValue();
   const cameraLookAtX = useMotionValue();
 
@@ -58,42 +65,17 @@ export const Experience = (props) => {
     }, 600);
   }, [section]);
 
-  // useFrame((state) => {
-    // let curSection = Math.floor(data.scroll.current * data.pages);
-
-    // if (curSection > 3) {
-    //   curSection = 3;
-    // }
-
-    // if (curSection !== section) {
-    //   setSection(curSection);
-    // }
-
-    // state.camera.position.x = cameraPositionX.get();
-    // state.camera.lookAt(cameraLookAtX.get(), 0, 0);
-
-    // const position = new THREE.Vector3();
-    // characterContainerAboutRef.current.getWorldPosition(position);
-    // console.log([position.x, position.y, position.z]);
-
-    // const quaternion = new THREE.Quaternion();
-    // characterContainerAboutRef.current.getWorldQuaternion(quaternion);
-    // const euler = new THREE.Euler();
-    // euler.setFromQuaternion(quaternion, "XYZ");
-
-    // console.log([euler.x, euler.y, euler.z]);
-  // });
 
     const getPositionZ = () => {
     switch (characterAnimation) {
       case "Standing":
       case "Greeting":
-        return 0.7; // Adjust this value to change the position when standing
+        return 0.7; 
       case "StandingUp":
         return 0.7;
       case "Sitting":
       default:
-        return 0.2;
+        return (isMobile ?  -0.3: 0.2);
     }
   };
 
@@ -101,11 +83,11 @@ export const Experience = (props) => {
     switch (characterAnimation) {
       case "Standing":
       case "Greeting":
-        return -1.1; // Adjust this value to change the position when standing
+        return (isMobile ?  -viewport.height / 4 :-1); 
       case "StandingUp":
       case "Sitting":
       default:
-        return -1.01;
+        return (isMobile ?  -viewport.height / 3.3 :-1);
     }
   };
 
@@ -113,29 +95,24 @@ export const Experience = (props) => {
     switch (characterAnimation) {
       case "Standing":
       case "Greeting":
-        return 0.8; // Adjust this value to change the position when standing
+        return (isMobile ? 0.3 : 1); 
       case "StandingUp":
-        return 0.9;
+        return (isMobile ?  0.4 : 1);
       case "Sitting":
       default:
-        return 1;
+        return (isMobile ?  0.5 : 1);
     }
   };
 
   return (
     <>
       {/* <OrbitControls
-        // Limits for rotation around the y-axis (azimuthal angle)
         minAzimuthAngle={-Math.PI / 4} // Minimum azimuthal angle
         maxAzimuthAngle={Math.PI / 2}  // Maximum azimuthal angle
-
-        // Limits for rotation up and down (polar angle)
         minPolarAngle={Math.PI / 4} // Minimum polar angle
         maxPolarAngle={Math.PI / 2} // Maximum polar angle
-
-        // // Limits for zooming
-        // minDistance={2} // Minimum distance for zoom
-        // maxDistance={8} // Maximum distance for zoom
+        minDistance={2} // Minimum distance for zoom
+        maxDistance={8} // Maximum distance for zoom
       /> */}
       <directionalLight
         castShadow
@@ -146,50 +123,38 @@ export const Experience = (props) => {
       <motion.group
         position={[getPositionX(), getPositionY(), getPositionZ()]}
         rotation={[0,-0.5,0]}
-        animate={section}
+        scale={[avatarScaleRatio, avatarScaleRatio, avatarScaleRatio]}
+        // animate={section}
       >
         <Avatar animation={characterAnimation} section={section} />
       </motion.group>
 
 
-      <Room position={[0.5, -1.1 , -2]} scale={0.4}  rotation={[-0.02,-0.7,0]}/>
+      {/* <Room 
+        position={[0.5, -1.1 , -2]} 
+        scale={0.4}  
+        rotation={[-0.02,-0.7,0]}
+      /> */}
 
-      {
-      // section === 0 &&
-
-      // <group position={[1, -1, 0]} rotation={[0,-0.5,0]}>
-      //   <Chair scale={[0.5, 0.8, 0.5]}  />
-      // </group>
-
-      // <group 
-      //   position={[1.2, -1, -0.3]}
-      //   rotation={[0,-0.5,0]}
-      //   scale={[1, 1.2, 1]}
-      // >
-      //   <VelvetBeanBag />
-      // </group>
-      }
-        {/* <VelvetBeanBag position={[0, 0, 0]} rotation={[0,0,0]} scale={[1, 1,1]}/> */}
-
-      {/* <Eletter position={[-2, -4, -10]} rotation={[0,0,0]} scale={[3, 3, 3]}  /> */}
-      {/* <Hi position={[-2, -1, -1]} rotation={[0,0.4,0]} scale={[1, 1, 1]}  /> */}
-      {/* <Hello position={[-1, 0, 0]} rotation={[-0.8,0.4,0.5]} scale={[1, 1, 1]}  /> */}
-
-      {/* <Ehs position={[-3.5, 1, -2]} rotation={[1,-1.5,0]} scale={[0.1, 0.1, 0.1]}/> */}
-
-      {/* SKILLS */}
       <motion.group
-        position={[0, -1.5, -10]}
+        position={[
+          isMobile ? 0 : 0.5,
+          isMobile ? -viewport.height / 3 : -1.1,
+          -2,
+        ]}
+        scale={[officeScaleRatio, officeScaleRatio, officeScaleRatio]}
+        rotation={[-0.02,-0.7,0]}
         animate={{
-          z: section === 1 || section === 2 ? -10 : -5,
-          y: section === 1 ? -viewport.height : -3,
+          y: isMobile ? -viewport.height / 3 : -1.1,
+        }}
+        transition={{
+          duration: 0.8,
         }}
       >
-        {/* <directionalLight position={[-5, 3, 5]} intensity={0.4} castShadow/> */}
-        {/* <Float>
-          <Hello position={[-1, 0, 0]} scale={[2, 2, 2]} />
-        </Float> */}
+        <Room section={section} />
+        
       </motion.group>
+
 
       <ambientLight intensity={1} />
     </>

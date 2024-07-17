@@ -1,14 +1,14 @@
 import { Section } from "./Interface";
 import { motion } from "framer-motion";
 
-const Home = () => {
-
+const Home = (props) => {
+  const { setSection } = props;
   return (
     <Section id="home">
       {/* <h1 className="sect">hi</h1> */}
       
       <h1 
-      // className="text-6xl font-extrabold leading-snug"
+      className="home-head"
       >
         Hi, I'm
         <br />
@@ -17,7 +17,7 @@ const Home = () => {
         >Ehsaneh Taleb</span>
       </h1>
       <motion.p
-        // className="text-lg text-gray-600 mt-4"
+        className="home-text"
         initial={{
           opacity: 0,
           y: 25,
@@ -31,13 +31,12 @@ const Home = () => {
           delay: 1.5,
         }}
       >
-        I'm a front_end developer
+        I'm a software engineer
         <br />
-        learn how to build 3D apps
+        excited to learn new tools
       </motion.p>
       <motion.button
-      //   className={`bg-indigo-600 text-white py-4 px-8 
-      // rounded-lg font-bold text-lg mt-16`}
+        onClick={() => setSection(3)}
         initial={{
           opacity: 0,
           y: 25,
