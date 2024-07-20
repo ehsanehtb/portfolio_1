@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react"
 import Home from "./Home"
 import { motion } from "framer-motion";
 import About from "./About";

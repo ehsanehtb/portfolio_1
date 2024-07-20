@@ -430,8 +430,24 @@
 }
 
 
-/* @media (max-height: 800px) {
-  .full-screen-item-content {
-    height: 100%;  
+@media (max-height: 800px) {
+
+  .full-screen-item {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+
   }
-} */
+
+  .contact-container {
+    margin-bottom: 1rem;
+
+  }
+
+  .contact-submit-button {
+    margin-top: 2rem;
+  }
+
+  .mt-8 {
+    margin-top: 1rem;
+  } 
+}
