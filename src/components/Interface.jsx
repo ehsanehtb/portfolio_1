@@ -1,15 +1,15 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Home from "./Home"
 import { motion } from "framer-motion";
 import About from "./About";
 import Contact from "./Contact";
 
 export const Section = (props) => {
-    const { children } = props
+    const { children , id } = props
 
     return( 
         <motion.section 
-            className="full-screen-container"
+            className="full-screen-item"
             initial={{
                 opacity: 0,
                 y: 50,
@@ -22,6 +22,7 @@ export const Section = (props) => {
                     delay: 0.5,
                 }
             }}
+            id={id}
         >
             {children}
         </motion.section>
@@ -31,7 +32,7 @@ export const Section = (props) => {
 const Interface = (props) => {
   const { setSection } = props;
   return (
-    <div className="full-screen-item">
+    <div className="full-screen-container">
         <Home setSection={setSection}/>
         <About/>
         <Contact/>

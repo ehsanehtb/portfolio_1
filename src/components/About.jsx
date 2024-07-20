@@ -32,6 +32,10 @@ const About = () => {
       title: "3D Modeling",
       level: 40,
     },
+    {
+      title: "SQL server",
+      level: 75,
+    },
   ];
 
 
