@@ -16,19 +16,14 @@ export const LoadingScreen = (props) => {
 
   return (
     <div
-    className={`overlay ${
-        started ? 'overlay-hidden' : 'overlay-visible'
-    }`}
->
-    <div className="overlay-text">
-        <div
-            className="overlay-progress"
-            style={{ width: `${progress}%` }}
-        >
-            Ehs
+      className={`overlay ${started ? "overlay-hidden" : "overlay-visible"}`}
+    >
+      <div className="overlay-text">
+        <div className="overlay-progress" style={{ width: `${progress}%` }}>
+          Ehs
         </div>
         <div className="overlay-progress-text">Ehs</div>
+      </div>
     </div>
-</div>
   );
 };

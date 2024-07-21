@@ -10,33 +10,30 @@ import { framerMotionConfig } from "./Config";
 import { LoadingScreen } from "./components/LoadingScreen";
 
 function App() {
-
   const [section, setSection] = useState(0);
   const [menuOpened, setMenuOpened] = useState(false);
   const [started, setStarted] = useState(false);
-  
+
   useEffect(() => {
     setMenuOpened(false);
   }, [section]);
 
   const calculateBackgroundGradient = (section) => {
-    // Example: Define linear gradient based on section
     let gradient = "linear-gradient(120deg, ";
 
     switch (section) {
       case 0:
-        gradient += "#ffd157, #ffcccc, #ccccff"; // Example gradient for section 1
+        gradient += "#ffd157, #ffcccc, #ccccff";
         break;
       case 1:
       case 2:
-        gradient += "#ccccff, #f7e49c ,#ffb3b3"; // Example gradient for section 1
+        gradient += "#ccccff, #f7e49c ,#ffb3b3";
         break;
       case 3:
-        gradient += "#ffb3b3, #ccccff, #ffd157"; // Example gradient for section 2
+        gradient += "#ffb3b3, #ccccff, #ffd157";
         break;
-      // Add more cases as needed
       default:
-        gradient += "#ffd157, #ffcccc, #ccccff"; // Default gradient
+        gradient += "#ffd157, #ffcccc, #ccccff";
         break;
     }
 
@@ -45,27 +42,33 @@ function App() {
     return gradient;
   };
 
-
   return (
     <>
       <LoadingScreen started={started} setStarted={setStarted} />
-    <MotionConfig
+      <MotionConfig
         transition={{
           ...framerMotionConfig,
         }}
       >
-    <Canvas shadows camera={{ position: [0, 1, 5], fov: 35 }} style={{ background: calculateBackgroundGradient(section)}}>
-      {/* <color attach="background" args={["#ececec"]} /> */}
-      <ScrollControls pages={3} damping={0.1}>
-        <ScrollManager section={section} onSectionChange={setSection} />
-        <Experience section={section} menuOpened={menuOpened}/>
-        <Scroll html>
-          <Interface section={section} setSection={setSection}/>
-        </Scroll>
-      </ScrollControls>
-    </Canvas>
-    <Menu onSectionChange={setSection} menuOpened={menuOpened} setMenuOpened={setMenuOpened} />
-    </MotionConfig>
+        <Canvas
+          shadows
+          camera={{ position: [0, 1, 5], fov: 35 }}
+          style={{ background: calculateBackgroundGradient(section) }}
+        >
+          <ScrollControls pages={3} damping={0.1}>
+            <ScrollManager section={section} onSectionChange={setSection} />
+            <Experience section={section} menuOpened={menuOpened} />
+            <Scroll html>
+              <Interface section={section} setSection={setSection} />
+            </Scroll>
+          </ScrollControls>
+        </Canvas>
+        <Menu
+          onSectionChange={setSection}
+          menuOpened={menuOpened}
+          setMenuOpened={setMenuOpened}
+        />
+      </MotionConfig>
     </>
   );
 }

@@ -2,7 +2,6 @@ import { Section } from "./Interface";
 import { motion } from "framer-motion";
 
 const About = () => {
-
   const skills = [
     {
       title: "JavaScript",
@@ -38,12 +37,8 @@ const About = () => {
     },
   ];
 
-
-
-    return (
-      <Section id="about">
-      {/* <h1 className="sect" >about</h1> */}
-
+  return (
+    <Section id="about">
       <motion.div whileInView={"visible"}>
         <h2 className="section-title">Skills</h2>
         <div className="mt-8 space-y-4">
@@ -90,7 +85,7 @@ const About = () => {
         </div>
       </motion.div>
     </Section>
-    );
-  };
+  );
+};
 
-  export default About
+export default About;
