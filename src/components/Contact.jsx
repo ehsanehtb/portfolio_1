@@ -20,6 +20,7 @@ const Contact = () => {
               name="name"
               id="name"
               className="contact-input"
+              required
             />
             <label htmlFor="email" className="contact-label mt-8">
               Email
@@ -29,11 +30,14 @@ const Contact = () => {
               name="email"
               id="email"
               className="contact-input"
+              required
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
             />
             <ValidationError
               prefix="Email"
               field="email"
               errors={state.errors}
+              className="validationError"
             />
 
             <label htmlFor="message" className="contact-label mt-8">
@@ -43,8 +47,12 @@ const Contact = () => {
               name="message"
               id="message"
               className="contact-textarea"
+              required
             />
-            <ValidationError errors={state.errors} />
+            <ValidationError
+              errors={state.errors}
+              className="validationError"
+            />
             <button
               className="contact-submit-button"
               disabled={state.submitting}
