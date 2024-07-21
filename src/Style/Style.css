@@ -258,8 +258,8 @@
 }
 
 .menu-button-item {
-  font-size: 1.5rem;
-  font-weight: bold;
+  font-size: 2.5rem;
+  /* font-weight: bold; */
   cursor: pointer;
   transition: color 0.3s;
   border: none;
@@ -416,7 +416,12 @@
   .menu-container-open {
     width: 100%;
   }
+
+  .menu-content {
+    align-items: center;
+  }
 }
+
 
 @media (max-height: 800px) {
   .full-screen-item {
