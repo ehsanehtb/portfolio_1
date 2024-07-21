@@ -78,7 +78,7 @@ export const Experience = (props) => {
         return isMobile ? 0.4 : 1;
       case "Sitting":
       default:
-        return isMobile ? 0.5 : 1;
+        return isMobile ? 0.4 : 1;
     }
   };
 
