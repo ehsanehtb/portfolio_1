@@ -4,6 +4,7 @@
   --secondary: #ee33b0;
   --bold-text: #1f2937;
   --text: #4b5563;
+  --text-dark: #13181e;
 }
 
 * {
@@ -40,6 +41,7 @@
   font-size: 2.25rem;
   font-weight: 800;
   line-height: 1.375;
+  color: #bb1b81;
 }
 
 .home-head span {
@@ -47,10 +49,33 @@
   padding-right: 0.25rem;
 }
 
+.myName {
+  font-family: 'Calligraffitti', cursive;
+  transition: text-shadow 0.5s ease, transform 0.5s ease, letter-spacing 0.5s ease;
+}
+
+.myName:hover {
+  transform: translate(-50%,-50%);
+  letter-spacing: 0.02em;
+  text-shadow: 
+  -2px 2px 0px #FFB650, 
+  -4px 4px 0px #FFD662, 
+  -6px 6px 0px #FF80BF, 
+  -8px 8px 0px #EF5097, 
+  -10px 10px 0px #7979e0, 
+  -12px 12px 0px #104ea3;
+}
+
 .home-text {
   font-size: 1.125rem;
   color: var(--text);
   margin-top: 1rem;
+  padding-right: 3rem;
+  width: -webkit-fill-available;
+}
+
+.home-text span {
+  display: block;
 }
 
 .skill-bar-container {
@@ -419,6 +444,10 @@
 
   .menu-content {
     align-items: center;
+  }
+
+  .home-text {
+    color: var(--text-dark);
   }
 }
 

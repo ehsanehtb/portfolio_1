@@ -18,7 +18,7 @@ const Home = (props) => {
       <h1 className="home-head">
         Hi, I'm
         <br />
-        <span>Ehsaneh Taleb</span>
+        <span className="myName">Ehsaneh Taleb</span>
       </h1>
       <motion.p
         className="home-text"
@@ -35,10 +35,9 @@ const Home = (props) => {
           delay: 1.5,
         }}
       >
-        I'm a software engineer
-        <br />
-        specialize in front-end development <br />
-        and I have a strong background in back-end technologies <br />
+        <span>I'm a software engineer</span>
+        <span>specialize in front-end development</span>
+        <span>and I have a strong background in back-end technologies</span>
       </motion.p>
       <div className="home-button-container">
         <motion.button
