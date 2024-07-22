@@ -37,7 +37,8 @@ const Home = (props) => {
       >
         I'm a software engineer
         <br />
-        excited to learn new tools
+        specialize in front-end development <br />
+        and I have a strong background in back-end technologies <br />
       </motion.p>
       <div className="home-button-container">
         <motion.button
