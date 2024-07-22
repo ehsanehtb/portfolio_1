@@ -40,7 +40,7 @@ const About = () => {
   return (
     <Section id="about">
       <motion.div whileInView={"visible"}>
-        <h2 className="section-title">Skills</h2>
+        <h2 className="title">Skills</h2>
         <div className="mt-8 space-y-4">
           {skills.map((skill, index) => (
             <div className="w-64" key={index}>

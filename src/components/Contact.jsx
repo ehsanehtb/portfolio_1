@@ -6,7 +6,7 @@ const Contact = () => {
 
   return (
     <Section id="contact">
-      <h2 className="contact-title">Contact me</h2>
+      <h2 className="title">Contact me</h2>
       <div className="contact-container">
         {state.succeeded ? (
           <p className="contact-message">Thanks for your message !</p>
