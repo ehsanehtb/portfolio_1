@@ -6,8 +6,8 @@ const Home = (props) => {
 
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "../../public/chart.pdf";
-    link.download = "chart.pdf";
+    link.href = "../../public/ehsanehtaleb.pdf";
+    link.download = "ehsanehtaleb.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
