@@ -4,9 +4,12 @@ import { motion } from "framer-motion";
 const Home = (props) => {
   const { setSection } = props;
 
+  // const url = "http://localhost:5173/"
+  const url = "https://www.ehsanehtaleb.com/"
+
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "${process.env.PUBLIC_URL}/ehsanehtaleb.pdf";
+    link.href = `${url}/ehsanehtaleb.pdf`;
     link.download = "ehsanehtaleb.pdf";
     document.body.appendChild(link);
     link.click();
