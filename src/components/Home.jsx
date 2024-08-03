@@ -6,7 +6,7 @@ const Home = (props) => {
 
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "../../public/ehsanehtaleb.pdf";
+    link.href = "${process.env.PUBLIC_URL}/ehsanehtaleb.pdf";
     link.download = "ehsanehtaleb.pdf";
     document.body.appendChild(link);
     link.click();
