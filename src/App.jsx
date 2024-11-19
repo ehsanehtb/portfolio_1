@@ -14,9 +14,9 @@ function App() {
   const [menuOpened, setMenuOpened] = useState(false);
   const [started, setStarted] = useState(false);
 
-  useEffect(() => {
-    setMenuOpened(false);
-  }, [section]);
+  // useEffect(() => {
+  //   setMenuOpened(false);
+  // }, [section]);
 
   const calculateBackgroundGradient = (section) => {
     let gradient = "linear-gradient(120deg, ";
